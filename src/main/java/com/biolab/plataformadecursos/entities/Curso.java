@@ -19,7 +19,6 @@ public class Curso {
     private long id;
     @NotBlank
     private String nome;
-    @NotBlank
     private int cargaHoraria;
     @ManyToMany(mappedBy = "cursos")
     private Set<Aluno> alunos = new HashSet<>();
