@@ -1,7 +1,9 @@
 package com.biolab.plataformadecursos.services;
 
 import com.biolab.plataformadecursos.DTOs.AlunoDTO;
+import com.biolab.plataformadecursos.DTOs.CursoDTO;
 import com.biolab.plataformadecursos.entities.Aluno;
+import com.biolab.plataformadecursos.entities.Curso;
 import com.biolab.plataformadecursos.repositories.AlunoRepository;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,10 @@ public class AlunoService {
         alunoDTO.setNome(aluno.getNome());
         alunoDTO.setEmail(aluno.getEmail());
         alunoDTO.setId(aluno.getId());
+        for (Curso curso : aluno.getCursos()){
+            CursoDTO cursoDTO = new CursoDTO(curso);
+            alunoDTO.getCursos().add(cursoDTO);
+        }
         return alunoDTO;
     }
 }
